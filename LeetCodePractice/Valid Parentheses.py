@@ -1,14 +1,15 @@
 
+"""
+20. Valid Parentheses
+"""
 class Solution:
 
     def _isOpening(self, bracket):
-        #print ord(']'), ord('}'), ord(')')
         if (ord(bracket) in [ord('['), ord('{'), ord('(')]):
             return True
         return False
 
     def _isClosing(self, bracket):
-        #print ord(']'), ord('}'), ord(')')
         if (ord(bracket) in [ord(']'), ord('}'), ord(')')]):
             return True
         return False
