@@ -16,7 +16,7 @@ def bfs(graph, start, end):
             print "Appending" , new_path
             if (item == end):
                 return "Length = " + str(len(new_path)) + " PATH = " + str(new_path)
-        print queue
+
 
 if __name__=="__main__":
     graph = {'A': set(['B', 'C']),

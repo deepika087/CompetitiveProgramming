@@ -27,7 +27,7 @@ class Solution(object):
             else:
                 if (s[i] == s[i-1]):
                     visited[i] = 1
-                    seenChar = [s[i]]
+                    seenChar = [s[i]] #Reset everything
                     character[s[i]] = i
                     start = i
                 else:
