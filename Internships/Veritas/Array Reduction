@@ -1,0 +1,25 @@
+def reductionCost(num):
+
+    sumT = 0
+    sumArray = []
+    num = sorted(num)
+    if (len(num) == 2):
+        return num[0] + num[1]
+
+    i = 0
+    while(i < len(num)):
+        if (i == 0):
+            sumT = num[i] + num[i + 1]
+            i = i + 2
+        else:
+            sumT = sumT + num[i]
+            i = i + 1
+        sumArray.append(sumT)
+    return sum(sumArray)
+
+
+
+
+if __name__ == "__main__":
+    print reductionCost([4, 3, 2, 1])
+
