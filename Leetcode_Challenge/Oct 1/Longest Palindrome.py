@@ -16,7 +16,7 @@ def longestPalindrome(s):
             n = n + 1
     print charcount
     result = 0
-    taken = False
+    taken = False #Because only one single occrence character can be taken
     someExtraCanBeAdded = False
     #print "Total number of element = ", n
 

@@ -27,8 +27,8 @@ def attempt2(s, n):
         return result[i:]
 
 if __name__=="__main__":
-    s = "10";
-    n = 2
+    s = "1234089389";
+    n = 4
     if (n >= len(s)):
         print "0"
     elif (n == 0):

@@ -1,0 +1,7 @@
+import re
+
+
+if __name__ == "__main__":
+    s =  raw_input('')
+    s = re.findall("[A-Z][a-z]*", s)
+    print len(s) + 1
