@@ -1,4 +1,3 @@
-__author__ = 'deepika'
 
 class TreeNode(object):
      def __init__(self, x):
@@ -12,23 +11,22 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
-        tilt=0
+        tilt=[]
         ls=0
         rs=0
-        print self.findTiltUtil(root, tilt,ls,rs)
-        print "result:", ls, rs
+        self.findTiltUtil(root, tilt, ls, rs)
+        return sum(tilt)
 
-    def findTiltUtil(self, root, tilt,ls,rs):
+    def findTiltUtil(self, root, tilt, ls, rs):
         if (root is None):
             return 0
         lst = self.findTiltUtil(root.left, tilt, ls, rs)
         rst = self.findTiltUtil(root.right, tilt, ls, rs)
         ls = ls + lst
         rs = rs + rst
-        print "at root.data : ", root.val, ls, rs
-
-        if (root.left is None and root.right is None):
-            return root.val
+        #print "at root.data : ", root.val, ls, rs, "old tilt : ", tilt
+        tilt.append(ls - rs if ls >= rs else -(ls - rs))
+        #print "Updated tilt to : ", tilt
         return root.val + ls + rs
 
 root=TreeNode(1)
@@ -38,10 +36,10 @@ root.left.left=TreeNode(4)
 root.left.right=TreeNode(5)
 
 s=Solution()
-s.findTilt(root)
+print s.findTilt(root)
 
 root=TreeNode(1)
 root.left=TreeNode(2)
 root.right=TreeNode(3)
 root.left.right=TreeNode(4)
-#s.findTilt(root)
+print s.findTilt(root)
