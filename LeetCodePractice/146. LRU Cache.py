@@ -3,6 +3,8 @@ __author__ = 'deepika'
 18 / 18 test cases passed.
 Status: Accepted
 Runtime: 362 ms
+
+Better than: 40%
 """
 class Node(object):
     def __init__(self, _k, _v):

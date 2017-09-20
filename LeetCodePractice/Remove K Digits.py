@@ -13,11 +13,15 @@ def attempt2(s, n):
     targetLen = N - n
     result = ''
     while(targetLen != 0):
+        print " choose minimum in : ", s[0:n+1]
         min_so_far = min(s[0:n+1])
         result = result + min_so_far
+        print "=========> result so far: ", result
         s = s[s.index(min_so_far) + 1 :]
         targetLen = targetLen - 1
+        print "len(s) - targetLen", len(s), targetLen, " result: ", len(s) - targetLen
         n = len(s) - targetLen
+
     i = 0
     while(i < len(result) and ord(result[i]) == ord('0')):
         i = i + 1
@@ -27,7 +31,7 @@ def attempt2(s, n):
         return result[i:]
 
 if __name__=="__main__":
-    s = "10";
+    s = "9874089389";
     n = 2
     if (n >= len(s)):
         print "0"

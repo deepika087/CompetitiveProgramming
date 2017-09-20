@@ -2,7 +2,13 @@
 """
 Accepted. performance is not that good  because I am popping and then inserting.
 Rather than that result[-1] = max(of the two intervals in qs)
+
+169 / 169 test cases passed.
+Status: Accepted
+Runtime: 95 ms
+
 """
+
 class Interval(object):
     def __init__(self, s=0, e=0):
         self.start = s
