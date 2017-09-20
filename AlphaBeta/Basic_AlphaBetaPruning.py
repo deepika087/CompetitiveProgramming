@@ -8,8 +8,8 @@ PLAYER2 = 2
 class Node:
     def __init__(self, value=0):
         self.value = value
-        self.alpha = 0
-        self.beta = 0
+        #self.alpha = 0
+        #self.beta = 0
         self.children = list()
 
     def printFromLeftToRight(self):
@@ -47,7 +47,7 @@ class Node:
         else:
             self.value = sys.maxint
             for child in self.children:
-                child_v = child.startRunning_Util(alpha, beta, PLAYER1)
+                child_v = child.startRunning_Util(alpha, beta)
                 self.value = min(self.value, child_v)
                 if (self.value <= alpha):
                     print " Prunning the branch at node : ", child.value

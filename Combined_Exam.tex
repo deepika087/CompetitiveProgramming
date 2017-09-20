@@ -1,0 +1,787 @@
+%\documentclass[10pt,addpoints]{exam}
+\documentclass[answers,addpoints]{exam}
+
+
+\usepackage{times}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+\newcommand{\theclass}{CSCI 353}
+\newcommand{\theexamdate}{May 9th 2017}
+\newcommand{\theexamnum}{3}
+
+\pagestyle{headandfoot}
+\headrule
+\firstpageheader{\theclass}{Exam \theexamnum}{\theexamdate}
+\runningheader{\theclass}
+              {Exam \theexamnum, Page \thepage\ of \numpages}
+              {\theexamdate}
+\firstpagefooter{}{}{}
+\runningfooter{}{}{}
+
+
+\begin{document}
+
+\begin{center}
+  \fbox{\fbox{\parbox{5.5in}{\centering \begin{itemize} 
+             \item \textbf{READ THESE INSTRUCTIONS CAREFULLY.}
+       \item Before you begin, \textbf{write your USC ID}.
+        \item The exam is closed book and closed notes, all ELECTRONICS should be put away 
+        \item Please write neatly 
+        \item Answer
+          the questions \emph{only} in the spaces provided on the question sheets.
+          If you run out of room for an answer, your answer is
+          probably incorrect.
+        \item Your answers do not need to be complete, grammatically
+          correct sentences. 
+          \item You have 50 minutes for the Quiz
+        \end{itemize}
+    }}}
+\end{center}
+\vspace{0.5in}
+\makebox[\textwidth]{\textbf{USC ID}:\enspace\hrulefill}
+
+\begin{center}
+  \gradetable[h][questions]
+\end{center}
+
+\newpage
+\begin{questions}
+
+
+\question 
+Answer the following
+
+\begin{parts} 
+
+\part[3] 
+What is the difference between Address Translation Protocol (ARP) and Dynamic Host Configuration Protocol(DHCP)?
+\fillwithdottedlines{1in} 
+\begin{solution} 
+ARP is a protocol to add a new entry in a MAC to IP address translation tables and DHCP is a protocol to assign an IP address to a new host
+ \end{solution} 
+   
+
+
+\part[3] 
+A new(cold) host has to do which one first? 
+\fillwithdottedlines{0.5in} 
+\begin{solution} DHCP has to be done first.
+\end{solution}
+
+\end{parts}
+
+\question 
+What is a problem that using carrier sense with wi-fi could cause? explain. What is the solution for collision avoidance in wi-fi?
+\fillwithdottedlines{1in}
+\begin{solution} Hidden terminals. Request to send and Clear to send. \end{solution} 
+
+
+
+\question 
+There are 13 root DNS servers across the world. Name the method which enables a host to reach the closest DNS server. 
+\fillwithdottedlines{0.5in}
+
+\begin{solution} 
+Anycast
+\end{solution} 
+
+
+\question
+Does the IPv4 header contain the subnet mask information?
+\fillwithdottedlines{0.5in}
+
+\begin{solution} 
+No
+\end{solution} 
+
+\question
+Broadcast address for 172.16.0.0/16
+\fillwithdottedlines{0.5in}
+\begin{solution} 
+172.16.255.255
+\end{solution} 
+
+\question
+The IPv4 header has a Fragment Offset field. Explain why is this needed. Does IPv6 have this field? Explain.
+\fillwithdottedlines{1in}
+\begin{solution} 
+Internet Protocols enable devices to communicate with each other. Underlying networks with different hardware may have different maximum transmission unit (MTU). When one network wants to transmit datagrams to a network with a smaller MTU, it may fragment its datagrams. The Fragment Offset field specifies the offset of a fragment relative to the beginning of the original un-fragmented IP datagram. 
+IPv6 does not have this field as it does not allow routers to perform fragmentation. It expects the hosts to know the path MTU before sending datagrams.
+\end{solution}
+
+\question Briefly describe NAT.
+\fillwithdottedlines{1in}
+\begin{solution} 
+NAT is Network Address Translation. This is a protocol that provides a way for multiple computers on a common network to share single connection to the Internet.
+\end{solution}
+
+\newpage
+%%%% Next Question 
+\question 
+Answer the following questions regarding the basics of computer networks and the Internet.
+
+\begin{parts}
+
+\part[3] 
+What are the fundamental measures of interest for a communications system?
+\fillwithdottedlines{0.5in}
+
+\part[3] 
+What are the basic tasks or functions of a communications system?
+\fillwithdottedlines{0.5in}
+
+\begin{solution} \\
+a)Throughput, delay, loss, cost, mobility, robustness, and secrecy\\
+b) Message formatting, error detection and recovery, addressing, routing, flow control, system management, security, and QoS
+\end{solution} 
+
+\end{parts}
+
+
+%%%%% Next Question 
+\question 
+Answer the following questions regarding the Internet.
+\begin{parts}
+
+\part[3] 
+What are the four causes of packet delay?
+\fillwithdottedlines{0.5in}
+
+\part[3] 
+What are the possible mechanisms of packet loss?
+\fillwithdottedlines{0.5in}
+\part[3]
+What is a tool that can be used to determine the number of hops to a destination and the round trip time (RTT) for each hop?
+\fillwithdottedlines{0.5in}
+
+\begin{solution} 
+a) Processing, transmission, propagation, and queuing.\\
+b) Buffer overflow (e.g., due to congestion) and electrical noise corrupting a packet.\\
+c) Traceroute
+\end{solution} 
+
+\end{parts}
+
+\question 
+What is DHCP, how does it work?
+\fillwithdottedlines{1in}
+\begin{solution} 
+The idea of DHCP (Dynamic Host Configuration Protocol) is to enable devices to get IP address without any manual configuration. The device sends a broadcast message saying I am new here. The DHCP server sees the message and responds back to the device and typically allocates an IP address. All other devices on network ignore the message of new device as they are not DHCP server.
+\end{solution} 
+
+\question 
+What is ARP, how does it work?
+\fillwithdottedlines{1in}
+\begin{solution} 
+ARP stands for Address Resolution Protocol. ARP is used to find LAN address from Network address. A node typically has destination IP to send a packet, the nodes needs link layer address to send a frame over local link. The ARP protocol helps here.\\
+1. The node sends a broadcast message to all nodes saying what is the MAC address of this IP address.\\
+2. Node with the provided IP address replies with the MAC address
+\end{solution} 
+
+\question 
+TCP Connection Questions
+\begin{parts}
+\part[3] 
+Sketch the TCP connection initiation and connection termination packet flows using a timing diagram.
+\vspace{3in}
+\part[3]
+What are the important attributes for a good routing algorithm?
+\vspace{2in}
+\part[3]
+What is a key difference between a distance vector and link state routing protocol?
+\vspace{2in}
+
+\part[3]
+For the following five node network topology with link costs as shown, find the shortest path from node A to all other nodes using Dijkstra’s algorithm. Clearly describe the order of links as they as added one-by- one by the algorithm and give the path costs.\\
+\includegraphics[width=18cm, height=5cm]{_1}\\
+\vspace{4in}
+\end{parts}
+
+\begin{solution} 
+a) \\
+\includegraphics[width=8cm, height=8cm]{_2}\\
+b) Fast, simple, little traffic, no loops, converge to optimum\\
+c) DV uses neighbor exchange of routing vectors, LS uses broadcast of link state information.\\
+d) \\
+\includegraphics[width=8cm, height=5cm]{_3}\\
+\end{solution} 
+
+
+\question
+The diagram below shows a network with 3 routers (shown as hexagons) connected by an Ethernet switch. The routing table for the left-hand router is shown. 
+\begin{parts}
+\part[3]
+Complete the routing table for the right-hand router, so that packets will be delivered appropriately (use no more than 5 route table entries).\\
+\includegraphics[width=10cm, height=10cm]{_4}\\
+
+\part[3]
+Are all the entries in the left-hand router’s table necessary? If not, show how to reduce the number of entries, without changing the routing behavior.
+\vspace{2in}
+\end{parts}
+\begin{solution}
+a) \\
+\includegraphics[width=8cm, height=8cm]{_5}\\
+
+b) The two entries for subnets 1.2.2.8/30 and 1.2.2.16/30 could be replaced with a single entry that maps prefix 1.2.2.0/27 to next hop 2:1.2.5.2.
+\end{solution}
+
+\question
+Consider the stop-and- wait protocol on a wired link between nodes A and B. Suppose that the propagation delay in each direction is 10 ms. The transmission rate is 10 Mbps.Assume that data packet size is 1000 bytes.
+What is the maximum data throughput (in bits/second) achievable using the stop-and-wait protocol, if none of the packets are lost?
+\fillwithdottedlines{0.5in}
+\begin{solution}
+(1000*8)/(2*10msec) = $0.4*10^6$ bits/second
+\end{solution}
+
+\question
+Suppose that a sender and a receiver are using ARQ to perform reliable data delivery. In a Go-Back- N ARQ protocol, the window size is 6. Frames with sequence numbers 1, 2, 3, 4 and 5 have been sent. The sender just received an ACK for frame 1. Frames 6, 7, 8, 9 and 10 are waiting to be sent. Draw the time diagram showing this scenario.
+\vspace{3in}
+
+\begin{solution}\\
+\includegraphics[width=8cm, height=8cm]{_6}
+\end{solution}
+
+\question
+Can Selective-Repeat ARQ use cumulative ACKs? Explain.
+\fillwithdottedlines{1in}
+\begin{solution}
+Yes. A cumulative ACK indicates that “all frames up to n have been received.” So if a receiver
+
+has received a contiguous block of frames ending with frame n, it can ACK them cumulatively.
+\end{solution}
+
+\question
+What are the trade-offs between Go-Back-N ARQ and Selective-Repeat ARQ?
+\fillwithdottedlines{1in}
+
+\begin{solution}
+Go-Back-N ARQ has a receive window of 1, and so it requires less memory for buffers in the receiver. However since the receiver will not store frames that follow a lost frame, using Go-Back-N ARQ may cause retransmissions of otherwise properly received frames, wasting bandwidth. Selective-Repeat ARQ requires more buffer space in the receiver, and since it can store frames after a lost frame, it will not request unnecessary retransmissions and will not waste bandwidth.
+\end{solution}
+
+\question
+Suppose two hosts, A and B, are separated by 10,000 kilometers and are connected by a direct link of R = 2 Mbps. 
+\begin{parts}
+\part[3]
+Suppose the propagation speed over the link is $2.5 * 10^8$ meters/sec.Calculate the bandwidth-delay product , $R * d_{prop}$.
+\fillwithdottedlines{1in}
+
+\part[3]
+Consider sending a file of 1000,000 bits from host A to host B. Suppose the file is sent continuously as one large message. What is the maximum number of bits that will be in the link at any given time?
+\fillwithdottedlines{1in}
+\end{parts}
+
+\begin{solution}
+a) $2 Mpbs * (10000*1000 / (2.5*10^8)) = 0.8 Mb$\\
+b) Maximum number of bits : $0.8$ M bits
+\end{solution}
+
+\question
+DNS uses a distributed approach as opposed to a single server. Why? If DNS were to crash or entirely go down, what would happen? Could the Internet still be used and, if so, how?
+\fillwithdottedlines{1in}
+\begin{solution}
+A distributed hierarchy of servers gives better scalability and does not present a single point of failure. If DNS were to crash one could only use IP addresses, and not hostnames, when accessing servers on the Internet.
+\end{solution}
+
+\question
+Consider two hosts, A and B, connected by a single link of rate R bps. Suppose that the two hosts are separated by m meters, and suppose the propagation speed along the link is s meters/sec. Host A is to send a packet of size L bits to Host B.
+\begin{parts}
+\part[3]
+Express the propagation delay, dprop in terms of m and s.
+\fillwithdottedlines{0.5in}
+\part[3]
+Determine the transmission time of the packet, dtrans in terms of L and R.
+\fillwithdottedlines{0.5in}
+\part[3]
+Ignoring the processing and queuing delays, obtain an expression for the end-to- end delay.
+\fillwithdottedlines{0.5in}
+\part[3]
+Suppose Host A begins to transmit the packet at time $t=0$. At time $t=dtrans$,where is the last bit of the packet?
+\fillwithdottedlines{0.5in}
+\part[3]
+Suppose d prop is greater than dtrans. At time $t= dtrans$, where is the first bit of the packet?
+\fillwithdottedlines{0.5in}
+\part[3]
+Suppose d prop is less than dtrans. At time $t=dtrans$, where is the first bit of the packet?
+\fillwithdottedlines{0.5in}
+\end{parts}
+\begin{solution}
+a) $dprop = m/s$\\
+b) $dtrans= L/R$\\
+c) End-to- end delay is $dprop + dtrans = m/s + L/R$\\
+d) The bit is just leaving host A.\\
+e) The first bit is on the link and has not yet reached host B.\\
+f) The first bit has reached host B.\\
+\end{solution}
+
+\question
+\begin{parts}
+\part[3]
+Why is Collision Detection (CD) not feasible in a wireless network?
+\fillwithdottedlines{1in}
+
+\part[3]
+Describe (i.e., give) the CSMA/CA algorithm as used in WiFi (IEEE 802.11).
+\vspace{3in}
+\end{parts}
+
+\begin{solution}
+a) In a wireless host the receiver is overwhelmed by the transmitter and cannot hear if someone else is transmitting. Also, hidden terminals and signal fading make it possible for two hosts A and C to not be able to hear each other, but a host B can hear both A and C. In such a situation A and C would not be able to detect a collision in any case, but B would be affected by it.\\
+b) \\
+    At the sender:\\
+    (1) if sense channel idle for DIFS then transmit entire frame.\\
+    (2) if sense channel busy then start random backoff time. timer counts down while channel is idle. transmit when timer expires. if no ACK received then increase the backoff time and repeat \\
+
+    At the receiver:\\
+    if frame is received OK then send an ACK
+\end{solution}
+
+\question
+Assume that source S and destination D are connected through two intermediate routers labeled R. Determine how many times each packet has to visit the network layer and the data link layer during a transmission from S to D.\\
+\begin{parts}
+\part Network layer – 4 times and Data link layer – 4 times
+\part Network layer – 4 times and Data link layer – 3 times
+\part Network layer – 4 times and Data link layer – 6 times
+\part Network layer – 2 times and Data link layer – 6 times
+\end{parts}
+\includegraphics[width=12cm, height=3cm]{_7}\\
+\begin{solution}
+C)
+\end{solution}
+
+\question
+The Client is connected to Cache with propagation delay of 0 ms. The  same client is connected to server with 1 Gbps line and 0 ms propagation delay. Assuming client is active and cache is on and behaves like HTTP cache. A client’s GET request is always first directed to Cache. 60\% of the request are satisfied by local cache. What is the average rate at which client can receive data in this case. \\
+\includegraphics[width=12cm, height=7cm]{_8}\\
+\vspace{2in}
+\begin{solution}
+40 \% * 25 Mbps + 60\% of 1 Gbps = 610 Mbps
+
+\end{solution}
+\question
+What is an advantage of a hierarchical name space over a flat name space for a system the size of the Internet.
+\fillwithdottedlines{1in}
+
+\begin{solution}
+The first can use a binary search hence faster; the second needs to use a sequential search. 
+\end{solution}
+
+\question
+Fill in the blank
+DNS uses \underline{\hspace{3cm}} associated with each entry to ensure that entries are invalidated after a particular threshold.
+\begin{solution}
+TTL or Timeout
+\end{solution}
+
+\question
+Suppose host A is sending a large file to host B over a TCP connection. The two end hosts are 10 msec apart (20 msec RTT) connected by a 1Gbps link. Assume that they are using a packet size of 1000 bytes to transmit the file. Also assume for simplicity that ACK packets are extremely small and can be ignored. 
+
+\begin{parts}
+\part[]
+At least how big would the window size (in packets) have to be for the channel utilization to be greater than 80\%.(Assume RTT as entire delay)
+\fillwithdottedlines{1in}
+\end{parts}
+
+\begin{solution}
+Bandwidth delay product = $10^9 * 20 * 16^{-3} = 2$ x $10^7$ bits\\
+$80 \%$ of $2 x 10^7$ bits = $1.6$ X $10^7$ bits\\
+Number of packets : $1.6$ X $10^7$ bits/$1000*8$ = $2000$ packets
+
+\end{solution}
+
+\question
+TCP waits until it has received three duplicate ACKs before performing a fast retransmit. Why do you think the TCP designers chose not to perform a fast retransmit after the first duplicate ACK for a segment is received?
+\fillwithdottedlines{1in}
+
+\begin{solution}
+Packets can arrive out of order from the IP layer. So whenever an out of order packet would be received it would generate a duplicate ACK and if we perform retransmission after the first duplicate ACK it would lead the sender to introduce too many redundant packets in the network.
+\end{solution}
+
+\question
+Ethernet frames must be at least 64 bytes long to ensure than the transmitter is still going in the event of a collision at the far end of the cable. Fast Ethernet (100 Mb/s) has the same 64 byte minimum frame size, but can get the bits out ten times faster. How is it possible to maintain the same frame size?
+\fillwithdottedlines{1in}
+
+\begin{solution}
+In order to detect collision on the channel, the transmission time T=pkt/transmission rate has to be greater than 2*RTT. So for the faster Ethernet, since the transmission rate is increased by 10, we will have to decrease the propagation delay by 10 so that it can still detect the collision. So the maximum wire length in Fast Ethernet is 1/10 as long as in Ethernet.
+
+\end{solution}
+
+
+\question
+Why does UDP exist? Would it not have been sufficient to let applications send raw IP packets?
+\fillwithdottedlines{1in}
+
+\begin{solution}
+IP packets contain IP addresses, which is used for host-to-host delivery. Once such a packet arrives, the network handler needs to know which process to give it to. UDP packets contain a destination port. This information is essential so they can be delivered to the right process.
+
+
+\end{solution}
+
+\question
+\begin{parts}
+\part[]
+ Many enterprise networks only allow registered machines to access the local area network. Some of these networks configure the DHCP server to assign a computer (or MAC address) the same IP address every time it connects to the network. Give one reason why.
+ \fillwithdottedlines{1in}
+ 
+ \part[]
+ What is the disadvantage of associating each registered MAC address with a pre-determined IP address?
+ \fillwithdottedlines{1in}
+\end{parts}
+\begin{solution}
+a.) Tracking traffic by IP address is much easier if an IP address corresponds to the same user at all time.\\
+b.) Running out of IP addresses when the number of potential users grows large, even if these users are not active at the same time. Less opportunity for subdividing the topology into separate IP prefixes for more scalable routing.\\
+
+\end{solution}
+
+
+\question
+Host A initiates a TCP connection with host B by sending a SYN packet, and B responds with a SYN-ACK packet. Upon receiving the SYN-ACK packet, A responds with an ACK packet. 
+\begin{parts}
+
+\part Immediately after sending the SYN packet to B
+\part Immediately after receiving the SYN-ACK packet from B 
+\part Immediately after receiving data from B
+\end{parts}
+
+\begin{solution}
+B)
+\end{solution}
+
+\question
+Suppose process A calls close() after the operating system has transmitted all of the outstanding data. What kind of packet does the operating system send in response to A’s call to close()? 
+ \fillwithdottedlines{0.5in}
+ 
+ \begin{solution}
+ TCP FIN packet
+ \end{solution}
+
+
+\question
+Which of the following is/are true about a communications channel that uses time- division multiplexing? (Circle ALL that are correct)
+\begin{parts}
+\part There may be times when the channel is idle, even if a sender has data to send on the channel. 
+\part  The channel requires the sender’s and receiver’s clocks to be closely synchronized. 
+\part  Data in the channel could experience variable delays due to queuing. 
+\part  In times of high utilization, a sender could be completely denied access to the channel.
+\end{parts}
+\begin{solution}
+A,B
+\end{solution}
+
+\question 
+You need to transfer large amounts of data cheaply, therefore, you are considering using FedEx as your communication network. FedEx will deliver an external hard drive of any size, for \$5, to the destination of your choosing in 1 hour. 
+
+\begin{parts} 
+
+\part[3] 
+How much data would the external hard drive have to hold for FedEx network to deliver the data faster than one dedicated 10 Mbps line?
+\fillwithdottedlines{1in}
+\begin{solution} 
+1 hour = 3600 sec. The network can transfer 10 Mb per sec. So, in one hour, it can transfer 36 Gb. So, the external drive needs to be larger than 36 Gb.
+ \end{solution} 
+   
+
+
+\part[3] 
+If you had to deliver 200 Gbits of data, and if you could multiplex this delivery on several 10 Mbps lines, and if the cost of a connection on each line was \$1/line (regardless of connection time), is it possible to use enough such lines to make the delivery at least as fast as the FedEx network, but cheaper? Explain your answer. (Assume that one external hard drive can hold 200 Gbits.)
+\fillwithdottedlines{1in} 
+\begin{solution} 
+No. Either faster, or cheaper but not both. Fedex can transfer 200 Gb in one hour for \$5. For \$5, we can only get 5 connections. 3 connections can transfer 180 Gb. Either, we have to use 6 connections to get faster, or 4 connections to get cheaper but not both. 
+\end{solution}
+
+\end{parts}
+
+
+\question 
+Sliding window protocols (an example of such a protocol is the Go-back-N protocol)
+\begin{parts} 
+
+\part[3] 
+Consider a sliding window protocol across a channel in which the one-way propagation delay is always 50 msec. Assume that (1) ACK packets are very small, (2) you can ignore queueing delays, and (3) each packet is 10000 bits in size (including the header information). If the channel is reliable and has a guaranteed transmission rate of 100 kbps, is there any performance benefit to using a sender’s window larger than 2 packets in size? Be sure to show all your work. 
+\fillwithdottedlines{1in} 
+\begin{solution} 
+Channel utilization = [(nL/R)/(RTT+ n L/R)]. With window size n = 1, utilization is 91.1\%. With n = 2, utilization is 95\%. With n = 3, utilization = 96.77. Utilization can still be higher with higher window size.
+ \end{solution} 
+   
+
+
+\part[3] 
+What problem/issue is the sliding window protocol trying to address? Please limit your answer to no more than a couple of sentences. \fillwithdottedlines{0.5in} 
+\begin{solution} 
+Increasing the channel utilization through pipelining
+\end{solution}
+
+
+
+\part[3] 
+Now consider a specific sliding window protocol, namely the Go-Back-N protocol, with a sender window size of 10 and a sequence number range of $2^{10}$. Suppose that at time T, the next in-order packet that the receiver is expecting has a sequence number K. Assume that the medium does not reorder messages. The, what are the possible set of sequence numbers inside the sender’s window at time T? Justify your answer. \fillwithdottedlines{1in} 
+\begin{solution} 
+Ideally, $[〖mod〗_{1024} (K-10),〖mod〗_{1024} (K+9)]. [K-10, K+9]$ can also be considered.
+\end{solution}
+
+
+\end{parts}
+
+
+\question
+Consider using the slow start algorithm on a connection with a 10 ms round-trip time and no congestion. If the initial congestion window (I.e., the maximum segment size) is 8KB, and the initial threshold is set at 64KB, and the receiver window is set at 85KB, how long does it take before the first full window (i.e., of maximum window size) can be sent? Justify your answer. 
+\fillwithdottedlines{1in}
+\begin{solution} 
+60 ms. Until threshold 64KB is reached, congestion window size is doubled. Then, incremented by 1 MSS till 80KB. Therefore, it takes 6 RTT i.e., 60 ms.
+\end{solution}
+
+\question
+TCP uses implicit congestion control. What is the “signal” implying the presence of congestion? What does TCP do when it detects congestion? What problems may this cause in wireless networks?
+\fillwithdottedlines{2in}
+\begin{solution} 
+TCP uses the time-out waiting for an ACK (from receiver to sender) as an implicit signal of congestion. TCP “guesses” that the ACK is due to a packet lost by overflow from a router buffer (and such overflow conditions are caused by congestion). TCP reduces its transmit rate (by shrinking its send window size) on detection of congestion. In wired networks most lost packets are due to congestion overflow. However, in wireless networks with high bit error rates many packets can be lost due to corruption and thus TCP will drop it send rate unnecessarily in such cases resulting in very low connection throughput.
+\end{solution}
+
+%%%% Next Question 
+\question 
+Consider sending a 2400-byte datagram into a link that has an MTU of 700 bytes. Suppose the original datagram is stamped with the identification number 422. How many fragments are generated? What are the values in the various fields in the IP datagram(s) generated related to fragmentation?
+\vspace{3in}
+
+\begin{solution} \\
+The maximum size of data field in each fragment = 680 (because there are 20 bytes IP header). Thus the number of required fragments = $[(2400-20)/680]=4$. Each fragment will have Identification number 422. Each fragment except the last one will be of size 700 bytes (including IP header). The last datagram will be of size 360 bytes (including IP header). The offsets of the 4 fragments will be 0, 85, 170, 255. Each of the first 3 fragments will have flag=1; the last fragment will have flag=0.
+\end{solution} 
+
+
+%%%%% Next Question 
+\question 
+Consider a datagram network using 8-bit host addresses. Suppose a router uses longest prefix matching and has the following forwarding table:
+\begin{center}
+ \begin{tabular}{|c | c|} 
+ \hline
+ Prefix Match & Interface \\ [0.5ex] 
+ \hline
+ 00 & 0 \\ 
+ \hline
+ 010 & 1 \\
+ \hline
+ 011 & 2 \\
+ \hline
+ 10 & 2 \\
+ \hline
+ 11 & 3 \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
+
+For each of the four interfaces, give the associated range of destination host addresses and the number of addresses in the range.
+\fillwithdottedlines{2in}
+\begin{solution}
+\begin{center}
+ \begin{tabular}{|c | c|} 
+ \hline
+ Destination range & Interface \\ [0.5ex] 
+ \hline
+ 00000000 – 00111111 & 0 \\ 
+ \hline
+ 01000000 – 01011111 & 1 \\
+ \hline
+ 01100000 – 01111111 & 2 \\
+ \hline
+ 10000000 – 10111111 & 2 \\
+ \hline
+ 11000000 – 11111111 & 3 \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
+\end{solution} 
+
+
+\question 
+True or False? A client can open multiple TCP connections to the same server process. 
+\fillwithdottedlines{0.5in}
+\begin{solution} 
+True.
+\end{solution} 
+
+\question 
+Describe the fundamental difference between circuit and packet switching.
+\fillwithdottedlines{1in}
+\begin{solution} 
+Circuit switching assigns a dedicated channel for two end-points.   Packet switching shares channels.
+\end{solution} 
+
+\question 
+Mention the five layers of the network stack. 
+\fillwithdottedlines{1in}
+\begin{solution} 
+Application layer, Transport layer, network layer, Link layer and Physical layer
+\end{solution} 
+
+\question 
+Why was IPv6 created? Describe the most significant changes of IPv6 compared to IPv4.
+\fillwithdottedlines{1in}
+\begin{solution} 
+IPv6 was primarily created to overcome the address shortage of IPv4 addresses. The most significant change is the increase in address length from 32 bits to 128 bits. Another change was the addition of a flow label.
+\end{solution}
+
+\question 
+Consider the count-to-infinity problem in the distance vector routing. Will the count-to-infinity problem occur if we decrease the cost of a link? Why? How about if we connect two nodes which do not have a link?
+\fillwithdottedlines{1in}
+\begin{solution} 
+NO, this is because that decreasing link cost won’t cause a loop (caused by the next-hop relation of between two nodes of that link). Connecting two nodes with a link is equivalent to decreasing the link weight from infinite to the finite weight.
+\end{solution}
+
+\question 
+How does TCP estimate the Round-Trip Time (RTT)? Your answer must be in equation form. Be sure to define each variable in your equation. 
+\fillwithdottedlines{0.5in}
+\begin{solution} 
+$EstimatedRTT=(1-\alpha)*EstimatedRTT+ \alpha*SampleRTT$
+\end{solution}
+
+
+\question 
+True or False, explain
+\begin{parts} 
+\part[3] 
+In stop&wait, the receiver always send an ACK frame each time it receives a frame with the wrong sequence number. 
+\fillwithdottedlines{0.5in} 
+\begin{solution} 
+True
+ \end{solution}    
+\part[3] 
+Statistical Multiplexing is more efficient when the Peak Rate is much higher than the average data rate.
+\fillwithdottedlines{0.5in} 
+\begin{solution} 
+True
+\end{solution}
+\part[3] 
+Stop&Wait works well when propagation time is much less than transmission time.
+\fillwithdottedlines{0.5in} 
+\begin{solution}True
+\end{solution}
+\part[3] 
+Disconnected private organizations “Intranets” can use any network address.
+\fillwithdottedlines{0.5in} 
+\begin{solution} True
+\end{solution}
+\part[3] 
+A client computer on a shared network is assigned a MAC address and an IP address by the network administrator.
+\fillwithdottedlines{0.5in} 
+\begin{solution} False. (MAC address)
+\end{solution}
+\part[3] 
+In UDP, if you have badly configured networks, the appication can receive the same packet multiple times.
+\fillwithdottedlines{0.5in} 
+\begin{solution}True
+\end{solution}
+\part[3] 
+If a computer has multiple Network Interface Cards, the DHCP process must occur separately over each interface to obtain a separate dynamically assigned IP address for each interface.
+\fillwithdottedlines{0.5in} 
+\begin{solution} True
+\end{solution}
+\part[3] 
+Iterative DNS queries require shorter socket connections with DNS servers than recursive DNS queries.
+\fillwithdottedlines{0.5in} 
+\begin{solution}True 
+\end{solution}
+\part[3] 
+Wireless station can’t transmit and receive at same time.
+\fillwithdottedlines{0.5in} 
+\begin{solution} True
+\end{solution}
+
+\end{parts}
+
+\question 
+Short Answer
+\begin{parts} 
+\part[3] 
+What can a web cache be used to?
+\fillwithdottedlines{0.5in} 
+\begin{solution} A web cache may be used to reduce response time as experienced by a user, reduce load on a link, and/or reduce load on a web server. 
+ \end{solution}
+ \part[3] 
+Consider transmitting a packet from host A to host B via a router (i.e. hosts A and B are located on different networks). All ARP tables (in hosts and router) are empty. Let x denotes the time (in seconds) to transmit the packet. Let y denotes the time (in seconds) elapsed from the beginning of transmitting an ARP query until receiving an ARP response. Ignoring propagation delay, the total time it takes to forward the packet from A to B is (   ) sec.
+\fillwithdottedlines{0.5in} 
+\begin{solution} 2(x+y)
+ \end{solution}
+ \part[3] 
+A CSMA/CD station on an Ethernet LAN is contending for the channel, trying to transmit a frame, using the binary exponential backoff algorithm. After experiencing the nth collision in a row for this frame, the station chooses a value K and waits K* 512 bit times before attempting retransmission. How does it choose the value of K?
+\fillwithdottedlines{0.5in} 
+\begin{solution}It randomly chooses K from the set {0, 1, 2, 3 … , 2n}. 
+ \end{solution}
+ \part[3] 
+A point-to-point link over which a sliding window algorithm of SWS = 5 frames is running. Each frame is 1 Kbits long. The propagation delay is 0.5 sec. The maximum bit rate over which this implementation can operate and still keep the link fully utilized is \underline{\hspace{2cm}} bps (Ignore the transmission time of the ACK).
+\fillwithdottedlines{0.5in} 
+\begin{solution} 4K. (RTT $\leq$ SWS * Ttrans; RTT = Ttrans + 2 Tprop; 1K/R + 2 * 0.5 $\leq$ 5 * 1k/R;  R $\leq$4K bps) 
+ \end{solution}
+ \part[3] 
+You are designing a Go-Back-N sliding window protocol to be used over a 1 Mbps link from a ground terminal to a geosynchronous satellite at a distance of 30,000 Km. Each frame carry 1 Kbyte of data. The speed of light is 3x108 m/sec. It is desired to keep the “pipe” full. The minimum number of bits you need for sequencing the frames is (   ) bits.
+\fillwithdottedlines{0.5in} 
+\begin{solution}5 bits. (RTT = 208 ms, t = 8 ms, 208/8 = 26, i.e. 5 bits)
+ \end{solution}
+ \part[3] 
+Suppose two hosts, A and B, are separated by 20,000 kilometers and are connected by a direct link of R = 2 Mbps. Suppose the propagation speed over the link is 2.5 x 108 m/s. A wants to send a file to B. Suppose the file is broken up into 20 packets with each packet containing 40,000 bits. Suppose that each packet is acknowledged by the receiver and the transmission time of an acknowledgment packet is negligible. Finally, assume that the sender cannot send a packet until the preceding one is acknowledged. How long does it take to send the file?
+\fillwithdottedlines{0.5in} 
+\begin{solution} 3.6 sec. (Ttrans = 20 ms, tprop = 80 ms; t = 20 x (ttrans + 2tprop) = 3.6 sec.)
+ \end{solution}
+ \part[3] 
+List at least three reasons that the packet will get dropped.
+\fillwithdottedlines{0.5in} 
+\begin{solution}Bad traffic, congested; reached max TTL; packet corrupted; duplicate packet on receiver side;  
+ \end{solution}
+ \part[3] 
+Why would the token-ring protocol be inefficient if a LAN had a very large perimeter?
+\fillwithdottedlines{0.5in} 
+\begin{solution} When a node transmits a frame, the node has to wait for the frame to propagate around the entire ring before the node can release the token. Thus, if L/R is small as compared to tprop, then the protocol will be inefficient.
+ \end{solution}
+ \part[3] 
+Suppose an ISP owns the block of addresses of the form 128.119.40.64/26. Suppose it wants to create four subnets from this block, with each block having the same number of IP addresses. What are the prefixes (of form a.b.c.d/x) for the four subnets?
+\fillwithdottedlines{0.5in} 
+\begin{solution}IP: 128.119.40.64/28; 128.119.40.80/28; 128.119.40.96/28; 128.119.40.112/28. 
+ \end{solution}
+\end{parts}
+
+\question
+Consider the TCP congestion-control algorithm that uses slow-start but has no fast retransmit/fast recovery. The algorithm starts each connection with a window size equal to one segment. Assume the only delay is latency only, and a single ACK is sent for a group of segments. Assume a perfect timeout mechanism that detects a lost segment exactly 1 RTT after it is transmitted. Round up the fractional numbers encountered in window size to greater integers (like 2.5 -> 3).
+\begin{parts}
+\part Fill in the table below assuming segments 7, 12 and 15 are lost. \\
+\includegraphics[width=15cm, height=5cm]{_9}\\
+\part  Sketch the variation of congestion window with respected to time. (Time starts from 0, 0 means the start of the first RTT, 1 means the end of the first RTT)
+\vspace{2in}
+\end{parts}
+\begin{solution}
+\begin{parts}
+\part
+\includegraphics[width=15cm, height=5cm]{_10}
+\part
+\includegraphics[width=15cm, height=10cm]{_11}
+\end{parts}
+\end{solution}
+
+\question
+An organization has a class C network 200.1.1 and wants to form subnets for four departments, with hosts as follows:\\
+A: 72 Hosts\\
+B: 35 Hosts\\
+C: 20 Hosts\\
+D: 18 Hosts\\
+There are 145 hosts in all.\\
+Give a possible arrangement of subnet masks to make this possible.
+\vspace{2in}
+\begin{solution}
+A possible arrangement of subnet numbers is as follows.\\
+A with 72 hosts requires log2 72 = 7 host bits\\
+Subnet number: 0/ \\
+B with 35 hosts requires log2 35 = 6 host bits \\
+Subnet number: 10/ \\
+C with 20 hosts requires log2 20 = 5 host bits \\
+Subnet number: 110/ \\
+D with 18 hosts requires log2 18 = 5 host bits \\
+Subnet number: 111/ \\
+(There are several possible bit assignments. The essential requirement is that any two distinct subnet numbers remain distinct when the longer one is truncated to the length of the shorter.)
+\end{solution}
+
+
+\end{questions}
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 

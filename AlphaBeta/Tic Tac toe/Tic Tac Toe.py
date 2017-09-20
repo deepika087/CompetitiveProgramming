@@ -10,7 +10,6 @@ class AlphaBeta:
         self.matrix = matrix
         self.player = player
         self.oponent = '2' if self.player == '1' else '1'
-        self.children = list()
         self.value = 0
         self.depth = depth
         self.cutOffDepth = cutOffDepth
@@ -60,12 +59,6 @@ class AlphaBeta:
                 return 0
         return 50 #In case of draw
 
-    def printGrid(self):
-        for i in range(3):
-            for j in range(3):
-                print self.matrix[i][j], ", "
-            print "\n"
-
     def startRunning(self):
         alpha = -sys.maxint
         beta = sys.maxint
@@ -94,10 +87,6 @@ class AlphaBeta:
 
     def startRunning_Util(self, alpha, beta):
         children = self.findStates() #List<BoardStates>
-        #print " running for state : ", self.matrix
-        #print "Possible number of child in this case : ", len(children)
-
-        #self.custom_print(children)
 
         if (self.depth == self.cutOffDepth or len(children) == 0):
             self.value = self.getEvaluation()
@@ -110,19 +99,16 @@ class AlphaBeta:
                 self.value = max(self.value, child_v)
 
                 if (self.value >= beta):
-                    #print " Pruning "
                     return child_v
                 if (self.value > alpha):
                     self.nextBoardState = child
                 alpha = max(alpha, self.value)
-            #return self.value
         else:
             self.value = sys.maxint
             for child in children:
                 child_v = child.startRunning_Util(alpha, beta)
                 self.value = min(self.value, child_v)
                 if (self.value <= alpha):
-                    #print " Prunning the branch at node : ", child.value
                     return child_v
                 if (self.value < beta):
                     self.nextBoardState = child
