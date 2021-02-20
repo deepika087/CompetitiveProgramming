@@ -121,3 +121,6 @@ obj.put(3,30)
 print "After put"
 obj.display()
 print "Value for key 2: ", obj.get(2)
+
+
+print "Result: "

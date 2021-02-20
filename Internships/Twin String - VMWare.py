@@ -62,5 +62,5 @@ def twins(a, b):
         result.append(process(a[i], b[i]))
     return result
 
-#print twins(["cdab", "dcba"], ["abcd", "abcd"])
+print twins(["cdab", "dcba"], ["abcd", "abcd"])
 print twins(["abbc", "abbdd"], ["abbc", "ddbba"])

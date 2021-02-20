@@ -1,7 +1,7 @@
 __author__ = 'deepika'
 
 """
-Used BFS:
+Used BFS and DFS:
 61 / 61 test cases passed.
 Status: Accepted
 Runtime: 92 ms

@@ -110,7 +110,7 @@ def dfs(n, m):
     #    print _r
 
 
-dfs(3, 3)
+dfs(3, 2)
 
 
 

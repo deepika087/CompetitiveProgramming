@@ -1,4 +1,4 @@
-"""
+l"""
 Zappos coding challenge
 Input  : ABC    DEF
 Output : FED    CBA

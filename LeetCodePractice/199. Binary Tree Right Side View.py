@@ -5,6 +5,8 @@ Status: Accepted
 Runtime: 35 ms
 
 Better than 92.82% submissions
+
+TODO: rightViewWithoutUsingMemory not verified on Leetode platform
 """
 # Definition for a binary tree node.
 class TreeNode(object):
@@ -17,6 +19,26 @@ class TreeNode(object):
          return str(self.val)
 
 class Solution(object):
+    def rightViewWithoutUsingMemory(self, root):
+        result = []
+        depth = 0
+        self.rightViewWithoutUsingMemoryUtil(root, depth, result)
+        return result
+
+    def rightViewWithoutUsingMemoryUtil(self, root, depth, result):
+        if root is None:
+            return
+
+        if depth < len(result):
+            result[depth] = root.val
+        else:
+            result.append(root.val)
+
+        self.rightViewWithoutUsingMemoryUtil(root.left, depth + 1, result)
+        self.rightViewWithoutUsingMemoryUtil(root.right, depth + 1, result)
+
+
+
     def rightSideView(self, root):
         """
         :type root: TreeNode
@@ -63,23 +85,23 @@ root.left.left=TreeNode(4)
 root.left.right=TreeNode(5)
 
 s=Solution()
-#print s.rightSideView(root)
+assert s.rightViewWithoutUsingMemory(root) == s.rightSideView(root)
 
-root=TreeNode(1)
-root.left=TreeNode(2)
+root1=TreeNode(1)
+root1.left=TreeNode(2)
 #root.right=TreeNode(3)
-root.left.right=TreeNode(4)
-#print s.rightSideView(root)
+root1.left.right=TreeNode(4)
+assert s.rightViewWithoutUsingMemory(root1) == s.rightSideView(root1)
 
-root=TreeNode(1)
-root.left = None
-root.right = None
-#print s.rightSideView(root)
+root2=TreeNode(1)
+root2.left = None
+root2.right = None
+assert s.rightViewWithoutUsingMemory(root2) == s.rightSideView(root2)
 
-root=TreeNode(1)
-root.left=TreeNode(2)
-root.right=TreeNode(3)
-root.left.right=TreeNode(5)
-root.right.left=TreeNode(6)
-print s.rightSideView(root)
+root3=TreeNode(1)
+root3.left=TreeNode(2)
+root3.right=TreeNode(3)
+root3.left.right=TreeNode(5)
+root3.right.left=TreeNode(6)
+assert s.rightViewWithoutUsingMemory(root3) == s.rightSideView(root3)
 

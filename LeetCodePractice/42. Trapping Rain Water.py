@@ -10,7 +10,7 @@ class Solution(object):
         maxheight = max(height)
         leftMax = height[0]
         water = 0
-        for i in range(1, height.index(maxheight)):
+        for i in range(2, height.index(maxheight)):
             res = (min(leftMax, maxheight) - height[i])
             water = water + res if res >= 0 else 0
             leftMax = max(leftMax, height[i])

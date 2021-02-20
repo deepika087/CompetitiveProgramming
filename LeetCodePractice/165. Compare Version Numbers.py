@@ -8,31 +8,49 @@ class Solution(object):
         :type version2: str
         :rtype: int
         """
+        i = 0
+        while i< len(version1) and version1[i] == '0':
+            i = i + 1
+        version1 = version1[i:]
+
+        i = 0
+        while i < len(version2) and version2[i] == '0':
+            i = i + 1
+        version2 = version2[i:]
+
         version1 = version1.split(".")
-        version1 = map(lambda x: int(x), version1)
+        version1 = None if len(version1) == 0 else [int(x) for x in version1]
 
         version2 = version2.split(".")
-        version2 = map(lambda x: int(x), version2)
+        print "len(version2)", len(version2)
+        version2 = None if len(version2) == 0 else [int(x) for x in version2]
         print version1, version2
 
-        if (len(version1) <= len(version2)):
-            return self.compareVersionUtil(version1, version2)
-        else:
-            result = self.compareVersionUtil(version2, version1)
-            if result == 1:
-                result = -1
-            elif result == 1:
-                result = 1
-            else:
-                result = 0
-            return result
+        if version1 == None and version2 is not None:
+            return -1
+        elif version1 is not None and version2 == None:
+            return 1
+        elif version1 is  None and version2 is None:
+            return 0
 
-    def compareVersionUtil(self, version1, version2):
-        if (len(version1) == 0):
-            if (len(version2) == 1 and version2[0] == 0):
-                return 0
+        i, j = 0, 0
+        while i < len(version1) or j < len(version2):
+            part1 = -1 if i >= len(version1) else version1[i]
+            part2 = -1 if j >= len(version2) else version2[j]
+
+            if part1 == part2:
+                i = i + 1
+                j = j + 1
+                if i == len(version1) and j == len(version2):
+                    return 0
+            elif part1 < part2:
+                return -1
             else:
+                return 1
 
 
 s=Solution()
-print s.compareVersion("13.1.1", "13.1.1.00")
+#print s.compareVersion("13.1.1", "13.1.1.00")
+#print s.compareVersion("01", "1")
+print s.compareVersion("1", "0")
+

@@ -4,6 +4,7 @@
 20 / 20 test cases passed.
 Status: Accepted
 Runtime: 69 ms
+Beats : 22%
 """
 class Solution(object):
     def containsNearbyDuplicate(self, nums, k):

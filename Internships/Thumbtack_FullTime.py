@@ -3,12 +3,17 @@ __author__ = 'deepika'
 Basically the transactions here are like cache. So we have original value in main database and cached values in transactions.
 IF the "begin" block hasn't been seen yet. Then simply execute the instructions on main Table itself.
 
-I have assumed transactions as a List<TransNode> where each TransNode has a dictionary that stored cached value of variables used in that transaction.
+I have assumed transactions as a List<TransNode> where each TransNode has a dictionary that stored cached value of
+variables used in that transaction.
 
 For every Begin, add a new Transaction block that is TransNode to stack.
-The trickiest event was NUMEQUALTO in Transaction list. For this I have traversed all cached dictionaries. Collected variable whose value matches. However, if that variable has been unset then add that variable to deletedKey set. But again if you see occurence of that varilable in future, this eans this variable was re-entered in system. So, remove that variable from deletedKey and add to matchValue.
+The trickiest event was NUMEQUALTO in Transaction list. For this I have traversed all cached dictionaries.
+Collected variable whose value matches. However, if that variable has been unset then add that variable
+to deletedKey set. But again if you see occurence of that varilable in future, this eans this variable was
+re-entered in system. So, remove that variable from deletedKey and add to matchValue.
 
-Then see if this value occurs in main database, fetch the variable that match value say returned set is "res". In this case print Len(res union matchVAlue difference deletedKey)
+Then see if this value occurs in main database, fetch the variable that match value say returned set is "res".
+In this case print Len(res union matchVAlue difference deletedKey)
 
 Overall, a very good question.
 """

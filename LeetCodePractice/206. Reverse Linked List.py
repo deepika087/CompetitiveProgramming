@@ -35,8 +35,6 @@ class Solution(object):
         return self._reverse(head)
 
     def _reverse(self, node, prev=None):
-        if prev:
-            print "Prev now points to:", prev.val
         if not node:
             print "Returning: ", prev
             return prev

@@ -5,6 +5,7 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        result = []
         if (len(numbers) == 1):
             result.append(0)
             result.append(0)

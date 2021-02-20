@@ -18,9 +18,10 @@ def attempt2(s, n):
         result = result + min_so_far
         print "=========> result so far: ", result
         s = s[s.index(min_so_far) + 1 :]
+        print "New s = ", s
         targetLen = targetLen - 1
         print "len(s) - targetLen", len(s), targetLen, " result: ", len(s) - targetLen
-        n = len(s) - targetLen
+        n = len(s) - targetLen # because some digits will get auto deleted
 
     i = 0
     while(i < len(result) and ord(result[i]) == ord('0')):
@@ -31,8 +32,8 @@ def attempt2(s, n):
         return result[i:]
 
 if __name__=="__main__":
-    s = "9874089389";
-    n = 2
+    s = "111117891";
+    n = 3
     if (n >= len(s)):
         print "0"
     elif (n == 0):

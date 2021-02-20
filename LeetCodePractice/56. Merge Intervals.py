@@ -27,7 +27,7 @@ class Solution(object):
         :rtype: List[Interval]
         """
         result = []
-        for interval in sorted(intervals, key=lambda i: i.start):
+        for interval in sorted(intervals, key=lambda i: (i.start, i.end)):
             if (len(result) == 0):
                 result.append(interval)
             else:

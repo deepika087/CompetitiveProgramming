@@ -18,7 +18,7 @@ class Solution(object):
             return False
         i, j = 0, 0
         diff = 0
-        while(i < len(s) and j < len(t)):
+        while(i < len(s) or j < len(t)):
             if ( i >= len(s)):
                 j = j + 1
             elif (j >= len(t)):
@@ -43,3 +43,5 @@ class Solution(object):
 s=Solution()
 print s.isOneEditDistance("a", "ac")
 print s.isOneEditDistance("abcd", "abce")
+print s.isOneEditDistance("abc", "bc")
+print s.isOneEditDistance("abc", "ac")

@@ -52,6 +52,6 @@ if __name__=="__main__":
         "RELEASE 84",
         "RELEASE 364"
         }
-    #check_log_history(events)
+    check_log_history(events)
 
-    count_palindromes("wowpurerocks")
+    #count_palindromes("wowpurerocks")

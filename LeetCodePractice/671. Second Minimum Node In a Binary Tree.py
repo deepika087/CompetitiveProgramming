@@ -22,7 +22,7 @@ class Solution(object):
         if root is None:
             return None
 
-        left_minimum, right_minimum = sys.maxint, sys.maxint
+        #left_minimum, right_minimum = sys.maxint, sys.maxint
         left_minimum = self.findSecondMinimumValueUtil(root.left)
         right_minimum= self.findSecondMinimumValueUtil(root.right)
 
@@ -30,9 +30,12 @@ class Solution(object):
             return root.val
 
         if root.left and root.right:
-            return root.val
+            return self._second_min(root.val, left_minimum, right_minimum)
 
         print "left_minimum: ", left_minimum, "right_minimum: ", right_minimum
+
+    def _second_min(self, a, b, c):
+         pass
 
 
 s=Solution()

@@ -1,0 +1,212 @@
+[
+  {
+    "request": {
+      "url": "/v1/customers",
+      "headers": {
+        "X-Stripe-Client-User-Agent": "{\"lang\": \"ruby\", \"publisher\": \"stripe\", \"uname\": \"Linux version 3.13.0-57-generic (buildd@brownie) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #95-Ubuntu SMP Fri Jun 19 09:28:15 UTC 2015\", \"hostname\": \"caron\", \"lang_version\": \"2.1.2 p95 (2014-05-08)\", \"engine\": \"ruby\", \"platform\": \"x86_64-linux\", \"bindings_version\": \"1.23.0\"}",
+        "Host": "api.stripe.com",
+        "Accept-Encoding": "gzip, deflate",
+        "Authorization": "Bearer sk_test_xOEwT736mUYLIx7hs0xTiCkI",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "*/*; q=0.5, application/xml",
+        "User-Agent": "Stripe/v1 RubyBindings/1.23.0"
+      },
+      "body": "email=tester@example.com&source[object]=card&source[number]=4242424242424242&source[exp_month]=12&source[exp_year]=2020",
+      "method": "POST"
+    },
+    "response": {
+      "body": "{\"default_source\": \"card_16lOksKv5xscqGyh9trfsVmi\", \"object\": \"customer\", \"description\": null, \"created\": 1442343974, \"livemode\": false, \"shipping\": null, \"id\": \"cus_7aOWdO54yUSmHn\", \"currency\": null, \"discount\": null, \"account_balance\": 0, \"sources\": {\"has_more\": false, \"total_count\": 1, \"object\": \"list\", \"data\": [{\"address_state\": null, \"last4\": \"4242\", \"dynamic_last4\": null, \"address_zip_check\": null, \"address_country\": null, \"id\": \"card_16lOksKv5xscqGyh9trfsVmi\", \"address_line2\": null, \"address_line1\": null, \"funding\": \"credit\", \"metadata\": {}, \"cvc_check\": null, \"exp_month\": 12, \"tokenization_method\": null, \"address_line1_check\": null, \"brand\": \"Visa\", \"object\": \"card\", \"fingerprint\": \"70RrlzfthHpu3e4l\", \"exp_year\": 2020, \"address_zip\": null, \"customer\": \"cus_6zNVcN43xWRlGm\", \"address_city\": null, \"name\": null, \"country\": \"US\"}], \"url\": \"/v1/customers/cus_6zNVcN43xWRlGm/sources\"}, \"subscriptions\": {\"has_more\": false, \"total_count\": 0, \"object\": \"list\", \"data\": [], \"url\": \"/v1/customers/cus_6zNVcN43xWRlGm/subscriptions\"}, \"metadata\": {}, \"email\": \"tester@example.com\", \"delinquent\": false}",
+      "headers": {
+        "Content-Length": "1394",
+        "Access-Control-Max-Age": "300",
+        "Request-Id": "req_6zNWsJRd22AKRc",
+        "Strict-Transport-Security": "max-age=31556926; includeSubDomains",
+        "Stripe-Version": "2015-07-13",
+        "Server": "nginx",
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache, no-store",
+        "Date": "Tue, 15 Sep 2015 19:07:10 GMT",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST, HEAD, OPTIONS, DELETE",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "code": 200
+    }
+  },
+  {
+    "request": {
+      "url": "/v1/charges",
+      "headers": {
+        "X-Stripe-Client-User-Agent": "{\"lang\": \"ruby\", \"publisher\": \"stripe\", \"uname\": \"Linux version 3.13.0-57-generic (buildd@brownie) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #95-Ubuntu SMP Fri Jun 19 09:28:15 UTC 2015\", \"hostname\": \"caron\", \"lang_version\": \"2.1.2 p95 (2014-05-08)\", \"engine\": \"ruby\", \"platform\": \"x86_64-linux\", \"bindings_version\": \"1.23.0\"}",
+        "Host": "api.stripe.com",
+        "Accept-Encoding": "gzip, deflate",
+        "Authorization": "Bearer sk_test_xOEwT736mUYLIx7hs0xTiCkI",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "*/*; q=0.5, application/xml",
+        "User-Agent": "Stripe/v1 RubyBindings/1.23.0"
+      },
+      "body": "amount=123&currency=usd&card[number]=4242424242424242&card[exp_month]=12&card[exp_year]=2020",
+      "method": "POST"
+    },
+    "response": {
+      "body": "{\"application_fee\": null, \"livemode\": false, \"currency\": \"usd\", \"invoice\": null, \"fraud_details\": {}, \"statement_descriptor\": null, \"captured\": true, \"receipt_number\": null, \"destination\": null, \"id\": \"ch_27U5scLw6ytdrHzio6iksSLE\", \"source\": {\"address_state\": null, \"last4\": \"4242\", \"dynamic_last4\": null, \"address_zip_check\": null, \"address_country\": null, \"id\": \"card_16T4rbKv5xscqGyhIHgZKFXK\", \"address_line2\": null, \"address_line1\": null, \"funding\": \"credit\", \"metadata\": {}, \"cvc_check\": null, \"exp_month\": 12, \"tokenization_method\": null, \"address_line1_check\": null, \"brand\": \"Visa\", \"object\": \"card\", \"fingerprint\": \"70RrlzfthHpu3e4l\", \"exp_year\": 2020, \"address_zip\": null, \"customer\": null, \"address_city\": null, \"name\": null, \"country\": \"US\"}, \"balance_transaction\": \"txn_16T4rbKv5xscqGyheVr5De3F\", \"receipt_email\": null, \"metadata\": {}, \"status\": \"succeeded\", \"amount_refunded\": 0, \"description\": null, \"refunded\": false, \"object\": \"charge\", \"paid\": true, \"failure_code\": null, \"customer\": null, \"refunds\": {\"has_more\": false, \"total_count\": 0, \"object\": \"list\", \"data\": [], \"url\": \"/v1/charges/ch_27U5scLw6ytdrHzio6iksSLE/refunds\"}, \"created\": 1437977607, \"failure_message\": null, \"shipping\": null, \"amount\": 123, \"dispute\": null}",
+      "headers": {
+        "Content-Length": "1422",
+        "Access-Control-Max-Age": "300",
+        "Request-Id": "req_6gRlC0rhQIk5Yd",
+        "Strict-Transport-Security": "max-age=31556926; includeSubDomains",
+        "Stripe-Version": "2015-07-13",
+        "Server": "nginx",
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache, no-store",
+        "Date": "Mon, 27 Jul 2015 06:13:27 GMT",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST, HEAD, OPTIONS, DELETE",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "code": 200
+    }
+  },
+  {
+    "request": {
+      "url": "/v1/charges",
+      "headers": {
+        "X-Stripe-Client-User-Agent": "{\"lang\": \"ruby\", \"publisher\": \"stripe\", \"uname\": \"Linux version 3.13.0-57-generic (buildd@brownie) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #95-Ubuntu SMP Fri Jun 19 09:28:15 UTC 2015\", \"hostname\": \"caron\", \"lang_version\": \"2.1.2 p95 (2014-05-08)\", \"engine\": \"ruby\", \"platform\": \"x86_64-linux\", \"bindings_version\": \"1.23.0\"}",
+        "Host": "api.stripe.com",
+        "Accept-Encoding": "gzip, deflate",
+        "Authorization": "Bearer sk_test_xOEwT736mUYLIx7hs0xTiCkI",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "*/*; q=0.5, application/xml",
+        "User-Agent": "Stripe/v1 RubyBindings/1.23.0"
+      },
+      "body": "amount=123&currency=usd&customer=cus_7aOWdO54yUSmHn",
+      "method": "POST"
+    },
+    "response": {
+      "body": "{\"application_fee\": null, \"livemode\": false, \"currency\": \"usd\", \"invoice\": null, \"fraud_details\": {}, \"statement_descriptor\": null, \"captured\": true, \"receipt_number\": null, \"destination\": null, \"id\": \"ch_27mPnhLu6ytdrHziBbNt26iR\", \"source\": {\"address_state\": null, \"last4\": \"4242\", \"dynamic_last4\": null, \"address_zip_check\": null, \"address_country\": null, \"id\": \"card_16lOlmKv5xscqGyhiTeZ6k4x\", \"address_line2\": null, \"address_line1\": null, \"funding\": \"credit\", \"metadata\": {}, \"cvc_check\": null, \"exp_month\": 12, \"tokenization_method\": null, \"address_line1_check\": null, \"brand\": \"Visa\", \"object\": \"card\", \"fingerprint\": \"70RrlzfthHpu3e4l\", \"exp_year\": 2020, \"address_zip\": null, \"customer\": \"cus_6zNWmKHvHj6Usz\", \"address_city\": null, \"name\": null, \"country\": \"US\"}, \"balance_transaction\": \"txn_16lOmgKv5xscqGyhMFd3RqDx\", \"receipt_email\": null, \"metadata\": {}, \"status\": \"succeeded\", \"amount_refunded\": 0, \"description\": null, \"refunded\": false, \"object\": \"charge\", \"paid\": true, \"failure_code\": null, \"customer\": \"cus_6zNWmKHvHj6Usz\", \"refunds\": {\"has_more\": false, \"total_count\": 0, \"object\": \"list\", \"data\": [], \"url\": \"/v1/charges/ch_16lOmgKv5xscqGyhAaMu15hQ/refunds\"}, \"created\": 1442344086, \"failure_message\": null, \"shipping\": null, \"amount\": 200, \"dispute\": null}",
+      "headers": {
+        "Content-Length": "1394",
+        "Access-Control-Max-Age": "300",
+        "Request-Id": "req_6zNWsJRd22AKRc",
+        "Strict-Transport-Security": "max-age=31556926; includeSubDomains",
+        "Stripe-Version": "2015-07-13",
+        "Server": "nginx",
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache, no-store",
+        "Date": "Tue, 15 Sep 2015 19:07:10 GMT",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST, HEAD, OPTIONS, DELETE",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "code": 200
+    }
+  },
+  {
+    "request": {
+      "url": "/v1/charges/ch_27U5scLw6ytdrHzio6iksSLE/refunds",
+      "headers": {
+        "X-Stripe-Client-User-Agent": "{\"lang\": \"ruby\", \"publisher\": \"stripe\", \"uname\": \"Linux version 3.13.0-57-generic (buildd@brownie) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #95-Ubuntu SMP Fri Jun 19 09:28:15 UTC 2015\", \"hostname\": \"caron\", \"lang_version\": \"2.1.2 p95 (2014-05-08)\", \"engine\": \"ruby\", \"platform\": \"x86_64-linux\", \"bindings_version\": \"1.23.0\"}",
+        "Host": "api.stripe.com",
+        "Accept-Encoding": "gzip, deflate",
+        "Authorization": "Bearer sk_test_xOEwT736mUYLIx7hs0xTiCkI",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "*/*; q=0.5, application/xml",
+        "User-Agent": "Stripe/v1 RubyBindings/1.23.0"
+      },
+      "body": "",
+      "method": "POST"
+    },
+    "response": {
+      "body": "{\"created\": 1437977955, \"receipt_number\": null, \"object\": \"refund\", \"charge\": \"ch_27U5scLw6ytdrHzio6iksSLE\", \"currency\": \"usd\", \"amount\": 123, \"balance_transaction\": \"txn_16T4xDKv5xscqGyhC5Fv259t\", \"reason\": null, \"id\": \"re_27U5yELw6ytdrHziqcCE5Ttr\", \"metadata\": {}}",
+      "headers": {
+        "Content-Length": "289",
+        "Access-Control-Max-Age": "300",
+        "Request-Id": "req_6gRqvHN14yfbEJ",
+        "Strict-Transport-Security": "max-age=31556926; includeSubDomains",
+        "Stripe-Version": "2015-07-13",
+        "Server": "nginx",
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache, no-store",
+        "Date": "Mon, 27 Jul 2015 06:19:15 GMT",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST, HEAD, OPTIONS, DELETE",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "code": 200
+    }
+  },
+  {
+    "request": {
+      "url": "/v1/charges/ch_27U5scLw6ytdrHzio6iksSLE/refunds/re_27U5yELw6ytdrHziqcCE5Ttr",
+      "headers": {
+        "X-Stripe-Client-User-Agent": "{\"lang\": \"ruby\", \"publisher\": \"stripe\", \"uname\": \"Linux version 3.13.0-57-generic (buildd@brownie) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #95-Ubuntu SMP Fri Jun 19 09:28:15 UTC 2015\", \"hostname\": \"caron\", \"lang_version\": \"2.1.2 p95 (2014-05-08)\", \"engine\": \"ruby\", \"platform\": \"x86_64-linux\", \"bindings_version\": \"1.23.0\"}",
+        "Host": "api.stripe.com",
+        "Accept-Encoding": "gzip, deflate",
+        "Authorization": "Bearer sk_test_xOEwT736mUYLIx7hs0xTiCkI",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "*/*; q=0.5, application/xml",
+        "User-Agent": "Stripe/v1 RubyBindings/1.23.0"
+      },
+      "method": "GET",
+      "body": ""
+    },
+    "response": {
+      "body": "{\"created\": 1437977955, \"receipt_number\": null, \"object\": \"refund\", \"charge\": \"ch_27U5scLw6ytdrHzio6iksSLE\", \"currency\": \"usd\", \"amount\": 123, \"balance_transaction\": \"txn_16T4xDKv5xscqGyhC5Fv259t\", \"reason\": null, \"id\": \"re_27U5yELw6ytdrHziqcCE5Ttr\", \"metadata\": {}}",
+      "headers": {
+        "Content-Length": "289",
+        "Access-Control-Max-Age": "300",
+        "Request-Id": "req_6zMefP8Ly6k430",
+        "Strict-Transport-Security": "max-age=31556926; includeSubDomains",
+        "Stripe-Version": "2015-07-13",
+        "Server": "nginx",
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache, no-store",
+        "Date": "Tue, 15 Sep 2015 18:13:03 GMT",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST, HEAD, OPTIONS, DELETE",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "code": 200
+    }
+  },
+  {
+    "request": {
+      "url": "/v1/charges/ch_27U5scLw6ytdrHzio6iksSLE",
+      "headers": {
+        "X-Stripe-Client-User-Agent": "{\"lang\": \"ruby\", \"publisher\": \"stripe\", \"uname\": \"Linux version 3.13.0-57-generic (buildd@brownie) (gcc version 4.8.2 (Ubuntu 4.8.2-19ubuntu1) ) #95-Ubuntu SMP Fri Jun 19 09:28:15 UTC 2015\", \"hostname\": \"caron\", \"lang_version\": \"2.1.2 p95 (2014-05-08)\", \"engine\": \"ruby\", \"platform\": \"x86_64-linux\", \"bindings_version\": \"1.23.0\"}",
+        "Host": "api.stripe.com",
+        "Accept-Encoding": "gzip, deflate",
+        "Authorization": "Bearer sk_test_xOEwT736mUYLIx7hs0xTiCkI",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "*/*; q=0.5, application/xml",
+        "User-Agent": "Stripe/v1 RubyBindings/1.23.0"
+      },
+      "method": "GET",
+      "body": ""
+    },
+    "response": {
+      "body": "{\"application_fee\": null, \"livemode\": false, \"currency\": \"usd\", \"invoice\": null, \"fraud_details\": {}, \"statement_descriptor\": null, \"captured\": true, \"receipt_number\": null, \"destination\": null, \"id\": \"ch_27U5scLw6ytdrHzio6iksSLE\", \"source\": {\"address_state\": null, \"last4\": \"4242\", \"dynamic_last4\": null, \"address_zip_check\": null, \"address_country\": null, \"id\": \"card_16T4rbKv5xscqGyhIHgZKFXK\", \"address_line2\": null, \"address_line1\": null, \"funding\": \"credit\", \"metadata\": {}, \"cvc_check\": null, \"exp_month\": 12, \"tokenization_method\": null, \"address_line1_check\": null, \"brand\": \"Visa\", \"object\": \"card\", \"fingerprint\": \"70RrlzfthHpu3e4l\", \"exp_year\": 2020, \"address_zip\": null, \"customer\": null, \"address_city\": null, \"name\": null, \"country\": \"US\"}, \"balance_transaction\": \"txn_16T4rbKv5xscqGyheVr5De3F\", \"receipt_email\": null, \"metadata\": {}, \"status\": \"succeeded\", \"amount_refunded\": 123, \"description\": null, \"refunded\": true, \"object\": \"charge\", \"paid\": true, \"failure_code\": null, \"customer\": null, \"refunds\": {\"has_more\": false, \"total_count\": 1, \"object\": \"list\", \"data\": [{\"created\": 1437977955, \"receipt_number\": null, \"object\": \"refund\", \"charge\": \"ch_27U5scLw6ytdrHzio6iksSLE\", \"currency\": \"usd\", \"amount\": 123, \"balance_transaction\": \"txn_16T4xDKv5xscqGyhC5Fv259t\", \"reason\": null, \"id\": \"re_27U5yELw6ytdrHziqcCE5Ttr\", \"metadata\": {}}], \"url\": \"/v1/charges/ch_27U5scLw6ytdrHzio6iksSLE/refunds\"}, \"created\": 1437977607, \"failure_message\": null, \"shipping\": null, \"amount\": 123, \"dispute\": null}",
+      "headers": {
+        "Content-Length": "1789",
+        "Access-Control-Max-Age": "300",
+        "Request-Id": "req_6zMgiieWoFuGFl",
+        "Strict-Transport-Security": "max-age=31556926; includeSubDomains",
+        "Stripe-Version": "2015-07-13",
+        "Server": "nginx",
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache, no-store",
+        "Date": "Tue, 15 Sep 2015 18:14:37 GMT",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST, HEAD, OPTIONS, DELETE",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*"
+      },
+      "code": 200
+    }
+  }
+]

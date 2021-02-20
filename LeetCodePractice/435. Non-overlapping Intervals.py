@@ -16,7 +16,7 @@ class Solution(object):
             return 0
         intervals = sorted(intervals, key=lambda i: (i.start, i.end))
         iend = intervals[0].end
-        inoutIndex = 0
+        inoutIndex = 0 #The number of intervals to be erased
         i=1
         while( i < len(intervals)):
             if (intervals[i].start < iend):

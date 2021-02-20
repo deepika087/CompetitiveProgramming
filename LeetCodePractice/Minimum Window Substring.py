@@ -1,6 +1,11 @@
 import copy
 import sys
 
+"""
+
+Incorrect solution.
+
+"""
 class Solution(object):
     def minWindow(self, s, t):
         """
