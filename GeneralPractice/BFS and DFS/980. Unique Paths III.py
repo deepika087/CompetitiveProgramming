@@ -36,28 +36,20 @@ class Solution(object):
 
         print("Num of zeroes : ", self.numofzeroes)
         steps = 0
-        #visited[iSave][jSave] = True
         self.startdfs(iSave, jSave, grid, visited, m, n, steps)
-
         return self.result
 
     def startdfs(self, startI, startJ, grid, visited, m, n, steps):
         if startI < 0 or startJ < 0 or startI >= m or startJ >= n or grid[startI][startJ] == -1 or visited[startI][startJ]:
             return False
-
-        #print(startI, startJ)
-
         if grid[startI][startJ] == 2 and steps-1 == self.numofzeroes:
-            #print("reached with ", steps, " steps")
             self.result += 1
             return True
-
-
         visited[startI][startJ] = True
         self.startdfs(startI + 1, startJ, grid, visited, m, n, steps + 1)
         self.startdfs(startI - 1, startJ, grid, visited, m, n, steps + 1)
-        self.startdfs(startI , startJ + 1, grid, visited, m, n, steps + 1)
-        self.startdfs(startI , startJ - 1, grid, visited, m, n, steps + 1)
+        self.startdfs(startI, startJ + 1, grid, visited, m, n, steps + 1)
+        self.startdfs(startI, startJ - 1, grid, visited, m, n, steps + 1)
         visited[startI][startJ] = False
         return False
 
